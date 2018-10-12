@@ -8,6 +8,7 @@ import './App.css';
 
 //components to the app imports. 
 import SearchBar from "../components/SearchBar/search_bar";
+import FederalReps from "../components/FederalReps/federal_reps.js";
 
 
 class App extends Component {
@@ -24,7 +25,7 @@ class App extends Component {
     voterInformation (props){
       this.setState({ addressFromSearchBar : props.address })
       this.setState({ representativesInfoByAddress : props.representativesInfo});
-     console.log("This is state");
+     console.log("This is app state");
      console.log(this.state);
     };
 
@@ -35,6 +36,7 @@ class App extends Component {
         <header className="App-header">
           <div className = "title">Voter Assist</div>
           <SearchBar resultReturn = {this.voterInformation}  />
+          <FederalReps Reps= {this.state.representativesInfoByAddress} />
         </header>
       </div>
     );

@@ -17,7 +17,7 @@ class SearchBar extends Component {
      super(props);
 
      this.state = {
-        address: "",
+        address: "51 poppy trail durham nc 27713",
         representativesInfo: {}
       };
      this.handleClick = this.handleClick.bind(this);
@@ -27,14 +27,27 @@ class SearchBar extends Component {
   // componentDidMount() {}
 
 
-  //When the submit button is clicked this fuction will run, this is the api cal.  
+  //When the submit button is clicked this fuction will run, this is the api cal. 
   handleClick() {
     console.log("This is address: ", this.state.address);
     fetch(`${BASE_URL}key=${key}&address=${this.state.address}`)
       .then(response => response.json())
       .then(
         (result) => {
-          this.setState({ representativesInfo : result })
+          console.log("this is result", result);
+          let finalDataObject = result.offices.map( office => {
+              return {
+                "name":office.name,
+                "people":office.officialIndices.map((index) => {
+                  return result.officials[index]
+                })
+              }
+          });
+          console.log(finalDataObject);
+
+
+
+          this.setState({ representativesInfo : finalDataObject })
           console.log(this.state);
           this.props.resultReturn(this.state)
           
