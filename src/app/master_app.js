@@ -1,17 +1,19 @@
+//==============Required Components=========
+
+
 //required modules for React to work. 
 import React, { Component } from 'react';
-
+import { Link, Route, BrowserRouter } from 'react-router-dom'
 
 //styling for the main app.
 import './App.css';
-
 
 //components to the app imports. 
 import SearchBar from "../components/SearchBar/search_bar";
 import FederalReps from "../components/FederalList/federal_reps.js";
 
-
-class App extends Component {
+//==============MasterApp==============
+class MasterApp extends Component {
   constructor () {
     super()
 
@@ -33,17 +35,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <div className = "title">Voter Assist</div>
-          <SearchBar resultReturn = {this.voterInformation}  />
-          <FederalReps Reps={
-            this.state.addressFromSearchBar
-          } />
-
-        </header>
+       <BrowserRouter>
+        <Route exact path="/" component={SearchBar} resultReturn = {this.voterInformation}  /> 
+       </BrowserRouter>
       </div>
     );
   }
 }
 
-export default App;
+export default MasterApp;
