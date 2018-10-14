@@ -1,8 +1,7 @@
 //Required React components
 import React, { Component } from "react";
 
-//Required for http call 
-import axios  from 'axios';
+import './search_bar.css'
 
 const BASE_URL = "https://www.googleapis.com/civicinfo/v2/representatives?"
 
@@ -23,32 +22,28 @@ class SearchBar extends Component {
      this.handleClick = this.handleClick.bind(this);
   }
 
-  // the api call and life cycyle functions
-  // componentDidMount() {}
-
-
   //When the submit button is clicked this fuction will run, this is the api cal. 
   handleClick() {
-    console.log("This is address: ", this.state.address);
+    // console.log("This is address: ", this.state.address);
     fetch(`${BASE_URL}key=${key}&address=${this.state.address}`)
       .then(response => response.json())
       .then(
         (result) => {
-          console.log("this is result", result);
+          // console.log("this is result", result);
           let finalDataObject = result.offices.map( office => {
               return {
-                "name":office.name,
+                "Office":office.name,
                 "people":office.officialIndices.map((index) => {
                   return result.officials[index]
                 })
               }
           });
-          console.log(finalDataObject);
+          // console.log(finalDataObject);
 
 
 
           this.setState({ representativesInfo : finalDataObject })
-          console.log(this.state);
+          // console.log(this.state);
           this.props.resultReturn(this.state)
           
         });
@@ -57,18 +52,15 @@ class SearchBar extends Component {
   render() {
    return (
      <div className="search-bar">
-      <input
+      <input 
+        id = "addressSearchBar"
         placeholder = "Address"
         value = {this.state.address}
           onChange = {event =>this.onInputChange(event.target.value)}
-       
        />
        <button onClick={this.handleClick}>
        Submit
        </button>
-
-       <h1>{this.state.address}</h1>
-      
      </div>
    );
   }
