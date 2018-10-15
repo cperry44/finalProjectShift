@@ -27,3 +27,27 @@
  /* justify-content: center; */
  font-size: calc(10px + 2vmin);
 }
+
+.executive{
+ width: 300px;
+ border: 5px solid #512da8;
+ padding: 25px;
+ margin: 25px;
+ background-color: #e0dbff;
+}
+
+.us-senate{
+ width: 300px;
+ border: 5px solid #e66f4b;
+ padding: 25px;
+ margin: 25px;
+ background-color: #ebb390;
+}
+
+.us-house{
+ width: 300px;
+ border: 5px solid #2f9117;
+ padding: 25px;
+ margin: 25px;
+ background-color: #aff09f;
+}

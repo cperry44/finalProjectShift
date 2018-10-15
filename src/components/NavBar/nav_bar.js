@@ -25,7 +25,7 @@ class NavBar extends Component {
       <span>{this.props.address}</span>
         <h3>National</h3>
         <h3>State</h3>
-        <h3>Local</h3>
+        {/* <h3>Local</h3> */}
      </div>
      );
     }

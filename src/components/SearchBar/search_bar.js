@@ -16,7 +16,7 @@ class SearchBar extends Component {
      super(props);
 
      this.state = {
-        address: "51 poppy trail durham nc 27713",
+        address: "1305 Sandstone Pl Green Bay, WI 54313",
         representativesInfo: {}
       };
      this.handleClick = this.handleClick.bind(this);
@@ -38,13 +38,13 @@ class SearchBar extends Component {
                 })
               }
           });
-          // console.log(finalDataObject);
+          console.log(finalDataObject);
 
 
 
           this.setState({ representativesInfo : finalDataObject })
           // console.log(this.state);
-          this.props.resultReturn(this.state)
+          // this.props.resultReturn(this.state)
           
         });
   }

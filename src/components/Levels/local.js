@@ -21,13 +21,13 @@ export default class State extends React.Component {
     
       <NavBar />
      <h1>Local Representatives </h1>
-     <div>
+     <div className = "executive">
        <h2>Executive</h2>
      </div>
-     <div>
+     <div className = "legislative">
        <h2>Legislative</h2>
      </div>
-     <div>
+     <div className = "judicial">
        <h2>Judicial</h2>
      </div>
     
